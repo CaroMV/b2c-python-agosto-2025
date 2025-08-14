@@ -1,0 +1,69 @@
+HTML -> HyperText Markup Lang
+En español cristiano -> Lenguaje de etiquetas de hipertexto
+
+Obj: Representar elementos visuales y no visuales de la web
+
+Elementos Visuales Ej:
+- Texto/Parrafo
+- Titulos
+- Imágenes
+- Listados
+- Tabla
+- Video
+- Audio
+- Link
+etc.
+
+Reglas de HTML
+
+1. Un archivo con extension html representa una página web
+2. Todo elemento en HTML es una etiqueta
+3. Toda etiqueta representa un elemento visual o no visual
+
+Anatomia de una etiqueta
+
+Una etiqueta es un elemento de HTML que se ve de la siguiente manera
+
+Esta etiqueta es del tipo autocerrada (sin contenido) y debe tener un nombre y puede tener uno
+o mas atributos (par attr="valor") 
+<nombre_etiqueta attr="valor"... >
+Ej:
+<h1 class="title" data="0">
+<hr>
+
+
+Estan las etiquetas con contenido
+<nombre_etiqueta attr="valor">
+    Contenido
+</nombre_etiqueta>
+Ej:
+<p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, earum beatae. Ad error consequuntur magnam nulla vitae? Doloribus quod sapiente dolore incidunt? Quia maxime dolorem aspernatur nihil nisi dolores velit!
+</p>
+<html>
+    <head>
+        ....
+    </head>
+    <body>
+        ...
+    </body>
+</html>
+
+4. Toda etiqueta puede tener como contenido:
+    - 1 o más etiqutas
+    - Texto
+
+
+Estructura de una página web
+<!DOCTYPE html>
+<html lang="en">
+    <head> La etiqueta head representa información de la pagina web pero no muestra nada dentrod de ella, por ejemplo puede indicar el tipo de codificación que se va a usar, una descripción, para que tipo de dispositivo esta creada, para que orientación esta creada, lenguaje, etc.
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        La etiqueta body representa todo lo visual
+        
+    </body>
+</html>
