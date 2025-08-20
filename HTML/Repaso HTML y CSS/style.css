@@ -1,0 +1,81 @@
+/* Selector por etiqueta */
+/* especificidad 1 */
+h1{
+    color: blue;
+}
+
+li{
+    color: rgb(188, 8, 216);
+}
+
+/* selector de clase */
+/* especificidad 10 */
+.subtitulos{
+    color: chocolate;
+}
+
+
+/* Selector de Id o identificador */
+/* especificidad 100 */
+
+#riverside{
+    color: greenyellow;
+}
+
+/* Comodin */
+/* especificidad 0 */
+*{
+    background-color: burlywood;
+
+}
+
+
+/*Selector decendente*/
+ul li{
+   background-color: darkgray; 
+   color: cornflowerblue;
+}
+
+div p{
+    color: crimson;
+}
+
+/*Selector Decendente directo*/
+div > p{
+    color: darkblue;
+    text-decoration:underline
+}
+
+input{
+    background-color: rgb(100, 149, 237);
+}
+
+/*Selector por atributo*/
+input[type="submit"]{
+    background-color: fuchsia;
+}
+
+
+/* Propiedades de CSS */
+
+/*
+Propiedades de color:
+    color: color de texto
+    background-color: color de fondo
+
+Propiedades de Texto:
+    text-align: cómo se va a distribuir el texto
+    ⚠️ esto alinea solamente el contenido de tipo texto
+*/
+
+#texto-bienvenido{
+    text-align:center;
+}
+
+a{
+    text-decoration:none;
+    font-style:italic;
+    font-weight:900;
+}
+
+
