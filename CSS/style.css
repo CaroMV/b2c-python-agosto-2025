@@ -1,0 +1,46 @@
+.contenedor-skillnest{
+    background-color: brown;
+    height: 300px;
+    width: 1000px;
+
+    min-width: 120px;
+    background: rgb(187, 84, 84) url("https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQpflckqTzo_CVJxHUPahKCrnIL3d2DIJn1ThfaalZfK682pUAn3mFidzfZM_yuLhNwHlLHRd_UkAVb_KZQfj4pnA") no-repeat center;
+    background-size: 300px 300px;
+}
+
+.contenedor-skillnest > p{
+    color: rgb(0, 136, 255);
+    font-size: 120px;
+    overflow:hidden;
+}
+
+.contenedor{
+    box-sizing: border-box;
+    background-color: chocolate;
+    width: 250px;
+    height: 250px;
+    /*Propiedad del modelo de caja es: padding*/
+    /* padding: 30px; */
+    padding: 20px 5px 50px 20px;
+    /* cuando uso 4 numeros es en orden del sentido del reloj, donde es, top, right, bottom y left*/
+     /*segunda propiedad del modelo de caja: border*/
+    border: 5px solid black ;
+    border-left: 20px solid blue;
+    border-radius: 40px;
+    /*Distancia ENTRE ELEMENTOS: margin*/
+    margin:30px;
+    display: inline-block;
+}
+
+.contenido{
+    background-color: chartreuse;
+    width: 100%;
+    height: 100%;
+}
+
+a{
+    background-color: darkorchid;
+    color: white;
+    width: 200px;
+    height: ;
+}
