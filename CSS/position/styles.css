@@ -1,0 +1,57 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Position:  
+
+static* predeterminado
+
+absolute:
+
+relative:
+
+sticky:
+
+fixed:
+
+*/
+header{
+    background-color: cornflowerblue;
+    height: 50px;
+    position: sticky;
+    top: 0px;
+    z-index: 99;
+}
+
+
+ul{
+    background-color: darkgray;
+}
+li{
+    background-color: rgb(211, 116, 116);
+    border: 1px solid black;
+
+
+}
+
+#persona-especial{
+    background-color: rgb(237, 210, 100);
+    position: relative;
+    top: -5px;
+    right: -20px;
+}
+
+
+.contenedor{
+    background-color: darkcyan;
+    height: 100px;
+    position: relative;
+}
+
+p{
+    background-color: red;
+    position: absolute;
+    top: 30px;    
+}
