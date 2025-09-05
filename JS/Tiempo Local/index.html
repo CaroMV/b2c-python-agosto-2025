@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiempo Local</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Tiempo Local</h1>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="cambiaCiudad('buenosaires')">Buenos Aires</a></li>
+                <li><a href="#" onclick="cambiaCiudad('ciudaddemexico')">Ciudad de México</a></li>
+                <li><a href="#" onclick="cambiaCiudad('santiago')">Santiago</a></li>
+                <li><a href="#" onclick="cambiaCiudad('saopaulo')">Sao Paulo</a></li>
+                <li><a href="#" onclick="cambiaCiudad('quito')">Quito</a></li> 
+            </ul>
+        </nav>
+        <label for="unidad">Mostrar temperatura en:</label>
+        <select name="unidad" id="unidad">
+            <option value="°C">°C</option>
+            <option value="°F">°F</option>
+        </select>
+    </header>
+    <main>
+        <h2 id="nombre-ciudad">Nombre Ciudad</h2>
+        <div class="contenedor-tarjetas">
+            <div class="tarjeta-clima">
+                <img src="" id="imagen-clima-hoy" alt="">
+                <h3>Hoy</h3>
+                <p id="clima-hoy">Nublado</p>
+                <p id="temp-max-hoy">22°C</p>
+                <p id="temp-min-hoy">15°C</p>
+            </div>
+            <div class="tarjeta-clima">
+                <img src="" id="imagen-clima-manana" alt="">
+                <h3>Mañana</h3>
+                <p id="clima-manana">Nublado</p>
+                <p id="temp-max-manana">22°C</p>
+                <p id="temp-min-manana">15°C</p>
+            </div>
+            <div class="tarjeta-clima">
+                <img src="" id="imagen-clima-miercoles" alt="">
+                <h3>Miercoles</h3>
+                <p id="clima-miercoles">Nublado</p>
+                <p id="temp-max-miercoles">22°C</p>
+                <p id="temp-min-miercoles">15°C</p>
+            </div>
+            <div class="tarjeta-clima">
+                <img src="" id="imagen-clima-jueves" alt="">
+                <h3>Jueves</h3>
+                <p id="clima-jueves">Nublado</p>
+                <p id="temp-max-jueves">22°C</p>
+                <p id="temp-min-jueves">15°C</p>
+            </div>
+            <div class="tarjeta-clima">
+                <img src="" id="imagen-clima-viernes" alt="">
+                <h3>Viernes</h3>
+                <p id="clima-viernes">Nublado</p>
+                <p id="temp-max-viernes">22°C</p>
+                <p id="temp-min-viernes">15°C</p>
+            </div>
+        </div>
+    </main>
+
+    <div class="cookies" id="contenedor-cookies">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim obcaecati dolorum nostrum reprehenderit nesciunt suscipit et fugiat ipsa vel, nihil quod neque veniam cum sapiente dicta quibusdam, porro ab temporibus?</p>
+        <a href="#">Lee más...</a>
+        <button id="boton-cookies">Acepto</button>
+    </div>
+    
+
+</body>
+<script src="script.js" defer></script>
+</html>

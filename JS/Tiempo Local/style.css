@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    background-color: #3398fe;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+ul{
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 15px;
+}
+main{
+    text-align: center;
+}
+.contenedor-tarjetas{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+
+.tarjeta-clima{
+    background-color: #ebebeb;
+    height: 200px;
+    border: 1px solid rgb(176, 176, 176);
+    width: 100px;
+}
+
+.tarjeta-clima img{
+    width: 50px;
+}
+
+.cookies{
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+#boton-cookies{
+    background-color: rgb(221, 207, 14);
+    padding: 10px;
+}
