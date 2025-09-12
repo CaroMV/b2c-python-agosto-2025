@@ -1,0 +1,69 @@
+.modal{
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.modal-contenido{
+    background-color: rgb(220, 219, 219);
+    padding: 20px;
+    width: 400px;
+    margin: 10% auto;
+
+}
+
+#imagen-perrito2{
+    border: 1px solid black;
+    max-height: 200px;
+}
+#cerrar-modal{
+    float: right;
+    font-size: 30px;
+    cursor: pointer;
+
+}
+
+
+nav{
+    background-color: cornflowerblue;
+    padding: 0;
+}
+ul{
+    display: flex;
+}
+li{
+    list-style: none;
+    background-color: goldenrod;
+    border: 1px solid black;
+    width: 150px;
+    height: 30px;
+}
+/*Tablet*/
+@media (max-width: 500px) {
+    ul{
+        flex-direction: column;
+    }
+    li{
+        width: 100%;
+        height: 50px;
+
+    }
+    
+}
+
+/*Telefono*/
+@media (max-width: 480px) {
+    body{
+        background-color: rgb(189, 189, 189);
+    }
+    ul{
+        flex-direction: column;
+    }
+    li{
+        width: 100%;
+        height: 30px;
+    }
+    
+}
