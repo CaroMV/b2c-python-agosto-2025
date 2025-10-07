@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio</title>
+</head>
+<body>
+    <h1>Creación de formularios en Flask</h1>
+    
+    <ul>
+    {% for alumno in estudiantes%}
+        <li> {{alumno.nombre}} - {{alumno.edad}}</li>
+    {% endfor %}
+    </ul>
+
+    <hr>
+    {#Desde el action se asigna cuál es la ruta responsable de procesar los datos#}
+
+    <form action="/crear_contacto" method="post">
+        <label for="campo-nombre">Nombre :</label>
+        <input type="text" name="nombre" id="campo-nombre">
+
+        <label for="campo-apellido">Apellido :</label>
+        <input type="text" name="apellido" id="campo-apellido">
+
+        <label for="campo-edad">Edad :</label>
+        <input type="number" name="edad" id="campo-edad">
+
+        <label for="campo-email">Email :</label>
+        <input type="email" name="email" id="campo-email">
+
+        <input type="submit" value="Enviar formulario">
+
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Mercado de Frutas</title>
+</head>
+<body>
+    <h2>¿Qué te gustaría comprar en el mercado?</h2>
+
+    <form action="/crear_pedido" method="post">
+        <table>
+            
+            <thead>
+                <tr>
+                    <th>
+                        Fruta
+                    </th>
+                    <th>
+                        Cantidad
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for fruta in lista_frutas%}
+                <tr>
+                    <td>
+                        <img src="{{ url_for('static', filename='img/'+fruta.imagen ) }}" alt="">
+                        {{fruta.nombre}}
+                    </td>
+                    <td>
+                        <select name="{{fruta.nombre}}" id="">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </td>
+                </tr>
+                {% endfor%}
+
+            </tbody>
+        
+
+        </table>
+        <h3>Informacion de Orden</h3>
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre">
+        <label for="apellido">Apellido</label>
+        <input type="text" name="apellido" id="apellido">
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email">
+        <input type="submit"  value="Hacer Pedido">
+    </form>
+
+    
+</body>
+</html>
