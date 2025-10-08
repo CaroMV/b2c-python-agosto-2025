@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de inicio</title>
+</head>
+<body>
+    <header>
+        <h1>Login y registro usando Sesión</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/registro">Registro</a></li>
+            <li><a href="/login">Login</a></li>
+            {% if 'usuario' in session %}
+            <li><a href="/logout">Logout</a></li>
+            {% endif%}
+        </ul>
+    </nav>
+    <p>numero de usuarios registrados:</p>
+
+    <p>{{total_usuarios}}</p>
+
+    {% if 'usuario' in session %}
+        <p>{{session['usuario'].nombre}}</p>
+        <p>{{session['usuario'].email}}</p>
+    {% endif%}
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+                <li>{{ message }}</li>  
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+    
+    {% block content %}{% endblock %}
+
+
+</body>
+</html>

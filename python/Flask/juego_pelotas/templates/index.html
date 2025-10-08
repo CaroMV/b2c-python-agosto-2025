@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego Pelotas</title>
+</head>
+<style>
+
+    .pelota{
+        height: 50px;
+        display: inline-block;
+        width: 50px ;
+        border-radius: 50%;
+        background-color: {{color}};
+    }
+</style>
+<body>
+    <h1>Juego Pelota</h1>
+    {% for x in range(num)%}
+    <div class="pelota"></div>
+    {% endfor %}
+</body>
+</html>
