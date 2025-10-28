@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
+</head>
+<body>
+    <h1>Lista de Usuarios</h1>
+
+    <a href="/">Mascotas</a>
+    {% for usuario in lista_usuarios %}
+    <p>
+        <b>Nombre:</b> <b>{{ usuario.nombre }} </b>
+        <b>Apellido:</b> <b>{{ usuario.apellido }}</b> 
+        <a href="/eliminar_usuario/{{usuario.id}}"> Eliminar</a>
+    </p>
+    {% endfor %}
+
+    <hr>
+    <h2>Agregar un Usuario</h2>
+    <form action="/crear_usuario" method="POST">
+        <label>Nombre:</label>
+        <input type="text" name="nombre"><br>
+        <label>Apellido:</label>
+        <input type="text" name="apellido"><br>
+        <input type="submit" value="Agregar Usuario">
+    </form>
+</body>
+</html>
