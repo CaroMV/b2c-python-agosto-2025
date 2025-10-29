@@ -10,8 +10,6 @@
 <body>
     <a href="/" class="btn btn-info btn-outline-primary" >Inicio</a>
     <div class="d-flex justify-content-around flex-wrap p-5">
-
-
             <div class="card col-3 ">
                 <div class="card-body">
                     <h2 class="card-title text-primary">Taco {{ taco['id'] }}</h2>
@@ -21,6 +19,7 @@
                 <div class="card-footer">
                     <h3 class="card-subtitle">Salsa: {{taco['salsa']}}</h3>
                     <p class="card-subtitle">Fecha de Creación: {{ taco['created_at'].strftime("%B %d, %Y  at %H:%M:%S") }}</p>
+                    <p class="card-subtitle">Fecha de Actualizacion: {{ taco['updated_at'].strftime("%B %d, %Y at %H:%M:%S") }}</p>
                     <a href="/editar/{{taco['id']}}" class="btn btn-warning" >Editar</a>
                     <a href="/borrar/{{taco['id']}}" class="btn btn-danger"  >Borrar</a>
                 </div>

@@ -1,5 +1,7 @@
 
 from flask_app.controllers import tacos #Importamos el controlador
+from flask_app.controllers import restaurantes
+
 from flask_app import app
 
 

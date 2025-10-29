@@ -8,7 +8,11 @@
     <title>Formulario de Taco</title>
 </head>
 <body>
-    <a href="/tacos" class="btn btn-success">Ver todos los tacos</a>
+    <nav>
+        <a href="/tacos" class="btn btn-success">Ver todos los tacos</a>
+        <a href="/" class="btn btn-success">Crear un Nuevo Taco</a>
+        <a href="/mostrar_restaurantes" class="btn btn-success"> Ver todos los restaurantes</a>    
+    </nav>
     <form action="/crear" method="post" class="p-3 col-4 mx-auto my-5b border">
         <h2 class="text-center text-primary">Crear Taco:</h2>
     
@@ -24,6 +28,19 @@
             <label for="salsa">Salsa:</label>
             <input type="text" name="salsa" id="salsa" class="form-control">
         </div>
+        <select name="restaurante_id">
+
+          <!-- Creamos las opciones para que el usuario seleccione un restaurante. -->
+
+           {% for restaurante in todos_restaurantes %}
+
+           <!-- El id del restaurante será el valor de la opción -->
+
+           <option value="{{restaurante.id}}">{{restaurante.nombre}}</option>
+
+           {% endfor %}
+
+       </select>
         <input type="submit" value="Crear taco" class="btn btn-primary btn-outline-dark mt-3">
     </form>
 </body>
