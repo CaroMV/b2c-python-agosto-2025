@@ -1,4 +1,4 @@
-from config.mysqlconnection import connectToMySQL
+from flask_app.config.mysqlconnection import connectToMySQL
 
 class Usuario:
     def __init__(self, data):
@@ -32,15 +32,26 @@ class Usuario:
 
         return cls(resultados[0])
 
+
     @classmethod
     def get_favoritos(cls, datos):
         query= """
             SELECT * from canciones 
-            JOIN favoritos ON canciones.id = favoritos.cancion_id
+            LEFT JOIN favoritos ON canciones.id = favoritos.cancion_id
             WHERE favoritos.usuario_id = %(id)s
         """
 
         return connectToMySQL('esquema_canciones').query_db(query,datos)
+    @classmethod
+    def get_no_favoritos(cls, datos):
+        query= """
+            SELECT * from canciones 
+            LEFT JOIN favoritos ON canciones.id = favoritos.cancion_id
+            WHERE favoritos.usuario_id != %(id)s;
+        """
+
+        return connectToMySQL('esquema_canciones').query_db(query,datos)
+
 
     @classmethod
     def add_favoritos(cls, datos):

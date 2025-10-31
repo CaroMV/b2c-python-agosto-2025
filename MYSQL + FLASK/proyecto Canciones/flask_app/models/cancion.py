@@ -1,4 +1,4 @@
-from config.mysqlconnection import connectToMySQL
+from flask_app.config.mysqlconnection import connectToMySQL
 
 class Cancion:
     def __init__(self, data):
@@ -37,7 +37,7 @@ class Cancion:
     def get_usuarios_favoritos(cls, datos):
         query= """
             SELECT * FROM usuarios
-            JOIN favoritos ON usuarios.id=favoritos.usuario_id
+            LEFT JOIN favoritos ON usuarios.id=favoritos.usuario_id
             WHERE favoritos.cancion_id = %(id)s
         """
 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios</title>
+</head>
+<body>
+    <h1>Usuarios</h1>
+    
+    <h2>Crear nuevo usuario</h2>
+    <form action="/usuarios/crear" method="post">
+        <p>Nombre:  <input type="text" name="nombre"></p>
+        <p>E-mail:  <input type="email" name="email"></p>
+        <p>Contraseña:  <input type="password" name="password"></p>
+        <button type="submit"> Crear</button>
+    </form>
+    
+
+    <div>
+        <h2>Todos los usuarios</h2>
+        <ul>
+            {% for usuario in todos_los_usuarios %}
+                <li> <a href="/usuarios/{{usuario.id}}"> {{usuario.nombre}} </a></li>
+            {% endfor %}
+        </ul>
+        <a href="/canciones">Agregar Canción</a>
+    </div>
+</body>
+</html>

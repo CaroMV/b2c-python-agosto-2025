@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{usuario.nombre}}</title>
+</head>
+<body>
+        <h1>{{usuario.nombre}}</h1>
+        <h2>Favoritos</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Canción</th>
+                    <th>Artista</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cancion_favorita in favoritos%}
+                    <tr>
+                        <td>{{cancion_favorita.titulo}}</td>
+                        <td>{{cancion_favorita.artista}}</td>
+                    </tr>
+                {% else %}
+                    <tr><td>
+                        No tiene canciones favoritas
+                    </td></tr>
+                {% endfor %} 
+
+            </tbody>
+        </table>
+
+        <h2>Agregar Favoritos</h2>
+        <form action="/usuarios/{{usuario.id}}/agregar_favorito">
+            <label for="cancion_id"> Cancion:</label>
+            <select name="cancion_id" required>
+                {% for cancion in todas_las_canciones %}
+                    <option value="{{cancion.id}}">{{cancion.titulo}}</option>
+                {% endfor%}
+            </select>
+            <button type="submit">Agregar Cancion a Favoritos</button>
+        </form>
+</body>
+</html>
