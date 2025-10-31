@@ -31,6 +31,8 @@ class Taco:
 
         return cls(taco_en_db[0])
     
+    
+    
     @classmethod
     def update(cls, datos):
         query = "UPDATE tacos SET tortilla=%(tortilla)s, guiso=%(guiso)s, salsa=%(salsa)s, updated_at = NOW() WHERE id = %(id)s;"
