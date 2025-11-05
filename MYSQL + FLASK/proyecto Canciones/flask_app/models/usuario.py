@@ -21,8 +21,8 @@ class Usuario:
         query = "SELECT * FROM usuarios;"
         resultados = connectToMySQL('esquema_canciones').query_db(query)
         usuarios = []
-        for usuario in resultados:
-            usuarios.append(cls(usuario))
+        for c in resultados:
+            usuarios.append(cls(c))
         return usuarios
     
     @classmethod
@@ -42,13 +42,18 @@ class Usuario:
         """
 
         return connectToMySQL('esquema_canciones').query_db(query,datos)
+    
+    
     @classmethod
     def get_no_favoritos(cls, datos):
-        query= """
-            SELECT * from canciones 
-            LEFT JOIN favoritos ON canciones.id = favoritos.cancion_id
-            WHERE favoritos.usuario_id != %(id)s;
-        """
+        #Arreglar query
+        query = """
+                SELECT canciones.* FROM canciones 
+                LEFT JOIN favoritos 
+                    ON canciones.id = favoritos.cancion_id 
+                    AND favoritos.usuario_id = %(id)s
+                WHERE favoritos.usuario_id IS NULL;
+            """
 
         return connectToMySQL('esquema_canciones').query_db(query,datos)
 
