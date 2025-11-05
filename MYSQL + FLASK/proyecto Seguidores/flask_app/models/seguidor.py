@@ -3,8 +3,8 @@ from flask_app.config.mysqlconnection import connectToMySQL
 class Seguidor:
     def __init__(self, data):
         self.id= data['id']
-        self.usuario_id= data['usuario_id']
         self.seguidor_id= data['seguidor_id']
+        self.seguido_id= data['seguido_id']
         self.created_at= data['created_at']
         self.updated_at= data['updated_at']
 
@@ -51,7 +51,7 @@ class Seguidor:
 
     #? ==== VALIDACIONES =====
     
-    
+
 
 
     
