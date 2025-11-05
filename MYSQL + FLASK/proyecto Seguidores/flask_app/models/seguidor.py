@@ -15,7 +15,7 @@ class Seguidor:
     @classmethod
     def save(cls, data):
         query = """
-                INSERT INTO seguidores (usuario_id, seguidor_id) VALUES ( %(usuario_id)s,%(seguidor_id)s )
+                INSERT INTO seguidores (seguidor_id, seguido_id) VALUES ( %(seguidor_id)s,%(seguido_id)s )
                 """
         return connectToMySQL('registro_seguidores_db').query_db(query, data)
     
