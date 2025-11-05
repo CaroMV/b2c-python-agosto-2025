@@ -1,4 +1,11 @@
 from flask_app.config.mysqlconnection import connectToMySQL
+from flask import flash
+import re
+from flask_app.controllers.usuarios import bcrypt
+
+EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+.[a-zA-Z]+$')
+
+
 
 class Usuario:
     def __init__(self, data):
@@ -47,8 +54,39 @@ class Usuario:
     
 
     #? ==== VALIDACIONES =====
-    
+
+    @staticmethod
+
+    #Validación nos retorna un booleano que nos dice si pasamos la validación (verdadoro ) o el formato o datos son invalidos (falso)
+    def validacionRegistroUsuario(usuario):
+        es_valido = True
+
+        if len(usuario['nombre']) <3:
+            flash("El nombre debe tener más de 3 caracteres")
+            es_valido = False
+
+        if len(usuario['apellido']) <3:
+            flash("El apellido debe tener más de 3 caracteres")
+            es_valido = False
+        
+        #Para validar un email uno requiere cierto formato
+            #? emaildeprueba @ nombreserviciooempresa . com /cl / net 
+            #? letras/numeros._ @ letras/numeros._ . letras
+            #   carolina.moreno carolina_moreno10 CAROLINA.MORENO
+        if not EMAIL_REGEX.match(usuario['email']):
+            flash('Formato del email invalido')
+            es_valido = False
+
+        if Usuario.get_by_email(usuario['email']):
+            flash("El email ya se encuentra registrado")
+            es_valido = False
+        
+        if not bcrypt.check_password_hash(usuario['password'], usuario['confimar_password']):
+            es_valido = False
+
+        return es_valido
 
 
+        
 
     
