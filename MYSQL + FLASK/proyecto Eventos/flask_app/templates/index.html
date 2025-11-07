@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos - Registro y login</title>
+</head>
+<body>
+    {% with mensajes = get_flashed_messages(category_filter=['registro']) %}
+        {% if mensajes  %}
+            <ul style="color:red">
+                {% for mensaje in mensajes%}
+                    <li>{{mensaje}}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <h2>Registro</h2>
+    <form action="/registrar" method="POST">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" value="{{datos.get('nombre','')}}"><br>
+        <label>Apellido:</label>
+        <input type="text" name="apellido" value="{{datos.get('apellido','')}}"><br>
+        <label>Email:</label>
+        <input type="email" name="email" value="{{datos.get('email','')}}"><br>
+        <label>Contraseña:</label>
+        <input type="password" name="password"><br>
+        <label>Confirmar Contraseña:</label>
+        <input type="password" name="confirmacion"><br>
+        <input type="submit" value="Registrar">
+    </form>
+
+
+    {% with mensajes = get_flashed_messages(category_filter=['login']) %}
+        {% if mensajes  %}
+            <ul style="color:red">
+                {% for mensaje in mensajes%}
+                    <li>{{mensaje}}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <h2>Inicio de Sesión</h2>
+    <form action="/login" method="POST">
+        <label>Email:</label>
+        <input type="email" name="email"><br>
+        <label>Contraseña:</label>
+        <input type="password" name="password"><br>
+        <input type="submit" value="Iniciar Sesión">
+    </form>
+</body>
+</html>

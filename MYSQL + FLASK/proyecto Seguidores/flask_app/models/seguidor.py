@@ -30,15 +30,19 @@ class Seguidor:
                 where seguidores.seguidor_id= %(seguidor_id)s;
             """
         resultados = connectToMySQL('registro_seguidores_db').query_db(query,data)
+
+        
         if len(resultados) ==0:
             print('Este usuario no sigue a nadie')
             return []
         
+        
         #Si queremos que la lista de usuarios seguidos esté en la instancia usuarios
 
-        # from flask_app.models.usuario import Usuario
-        # seguidos = [Usuario(row) for row in resultados]
-        # return seguidos
+        from flask_app.models.usuario import Usuario
+        seguidos = [Usuario(fila) for fila in resultados]
+            #lista de seguidos
+        return seguidos
     
 
     # ---- Delete -----

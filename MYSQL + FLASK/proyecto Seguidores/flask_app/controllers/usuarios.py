@@ -14,7 +14,7 @@ def login_registro_render():
 
     return render_template('inicio_login_registro.html')
 
-@app.route('/usuario/registro')
+@app.route('/usuario/registro', methods=['POST'])
 def usuario_registro():
     pass_hasheada=bcrypt.generate_password_hash(request.form['password'])
 
@@ -30,14 +30,21 @@ def usuario_registro():
         print("Error en la validación de datos")
         return redirect('/')
     
-    usuario_registrado = Usuario.save(datos)
+    datos_validados={
+        'nombre': request.form['nombre'],
+        'apellido': request.form['apellido'], 
+        'email': request.form['email'],
+        'password': pass_hasheada,
+    }
+
+    usuario_registrado = Usuario.save(datos_validados)
     
     #? Si quiero que el registro me logee al finalizar el proceso
     # session['usuario']= usuario_registrado
     # return redirect('/siguienteruta')
     return redirect('/')
 
-@app.route('/usuario/login')
+@app.route('/usuario/login', methods=['POST'])
 def login():
     
     datos={
@@ -53,4 +60,23 @@ def login():
     session['usuario']=usuario
 
     return redirect('/siguienteruta')
+
+
+@app.route('/usuario/perfil/<int:id>')
+def perfil_usuario(id):
+
+    datos={
+        'seguidor_id':id
+    }
+
+    dato_usuario={
+        'id':id
+    }
+    usuario=Usuario.get_by_id(dato_usuario)
+    
+    lista_seguidores = Seguidor.get_seguidos_by_usuario(datos)
+
+    print(lista_seguidores)
+
+    return render_template('perfil_usuario.html', usuario=usuario, lista_seguidores=lista_seguidores)
 

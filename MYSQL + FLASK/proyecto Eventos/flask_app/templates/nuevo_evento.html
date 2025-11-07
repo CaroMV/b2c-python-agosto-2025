@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Nuevo Evento</title>
+</head>
+<body>
+    <h1>Crear Nuevo Evento</h1>
+    <a href="/eventos">Inicio</a>
+    <a href="/logout"> Cerrar Sesión</a>
+
+    <form action="/crear_evento" method="post">
+        <label>Nombre Evento:</label>
+        <input type="text" name="nombre_evento" value="{{datos.get('nombre_evento','')}}" required><br>
+        <label>Ubicación:</label>
+        <input type="text" name="ubicacion" value="{{datos.get('ubicacion','')}}" required><br>
+        <label>Fecha:</label>
+        <input type="date" name="fecha" value="{{datos.get('fecha','')}}" required><br>
+        <label>Detalles:</label>
+        <textarea name="detalles" id="detalles" required></textarea><br>
+
+        <button type="submit">Crear Evento</button>
+    </form>
+
+    {% with mensajes = get_flashed_messages(category_filter=['crear_evento']) %}
+        {% if mensajes  %}
+            <ul style="color:red">
+                {% for mensaje in mensajes%}
+                    <li>{{mensaje}}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</body>
+</html>

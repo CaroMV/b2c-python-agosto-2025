@@ -1,7 +1,7 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask import flash
 import re
-from flask_app.controllers.usuarios import bcrypt
+from flask_app.controllers import usuarios
 
 EMAIL_REGEX = re.compile(r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+.[a-zA-Z]+$')
 
@@ -47,11 +47,21 @@ class Usuario:
                 """
         resultados = connectToMySQL('registro_seguidores_db').query_db(query,data)
 
-        if len(resultados) ==0:
+        print(resultados)
+
+        if not resultados:
             print('No hay un usuario con este email')
             return False
         return cls(resultados[0])
     
+    @classmethod
+    def get_by_id(cls,datos):
+        query = "SELECT * FROM usuarios WHERE id = %(id)s;"
+        resultados = connectToMySQL('registro_seguidores_db').query_db(query,datos)
+        
+        print(resultados)
+        return cls(resultados[0])
+
 
     #? ==== VALIDACIONES =====
 
@@ -77,11 +87,12 @@ class Usuario:
             flash('Formato del email invalido')
             es_valido = False
 
+        #Este elemento get_by_email 
         if Usuario.get_by_email(usuario['email']):
             flash("El email ya se encuentra registrado")
             es_valido = False
         
-        if not bcrypt.check_password_hash(usuario['password'], usuario['confimar_password']):
+        if not usuarios.bcrypt.check_password_hash(usuario['password'], usuario['confirmar_password']):
             es_valido = False
 
         return es_valido
